@@ -1,7 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000', // Frontend origin
+    // methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    // allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, // Allow cookies or credentials if needed
+}));
 
 // Load environment variables
 dotenv.config();
@@ -10,12 +16,7 @@ dotenv.config();
 const app = express();
 
 // authentication
-app.use(cors({
-    origin: 'http://localhost:3000', // Frontend origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true, // Allow cookies or credentials if needed
-}));
+
 
 app.use(express.json());
 
