@@ -35,7 +35,7 @@ const InteractionForm = () => {
                     throw new Error('User timezone is not available.');
                 }
 
-                const res = await axios.get(`http://localhost:5000/api/interactions/${id}`, {
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/interactions/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -76,7 +76,7 @@ const InteractionForm = () => {
                     throw new Error('Restaurant ID is missing.');
                 }
 
-                const res = await axios.get(`http://localhost:5000/api/contacts/restaurant/${currentRestaurantId}`, {
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/contacts/restaurant/${currentRestaurantId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -110,7 +110,7 @@ const InteractionForm = () => {
 
             if (isEdit) {
                 await axios.put(
-                    `http://localhost:5000/api/interactions/${id}`,
+                    `http://kam-4j8a.onrender.com/api/interactions/${id}`,
                     { ...formData, date: utcDate },
                     {
                         headers: {
@@ -124,7 +124,7 @@ const InteractionForm = () => {
                     throw new Error('Restaurant ID is missing.');
                 }
                 await axios.post(
-                    'http://localhost:5000/api/interactions',
+                    'http://kam-4j8a.onrender.com/api/interactions',
                     { ...formData, date: utcDate, restaurantId: currentRestaurantId },
                     {
                         headers: {

@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
             if (storedToken) {
                 try {
                     axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
-                    const res = await axios.get('http://localhost:5000/api/auth/me');
+                    const res = await axios.get('http://kam-4j8a.onrender.com/api/auth/me');
                     setUser(res.data.data); // Assuming /me returns { success: true, data: user }
                 } catch (err) {
                     console.error(err);
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     // Login Function
     const login = async (email, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const res = await axios.post('http://kam-4j8a.onrender.com/api/auth/login', { email, password });
             const { token: receivedToken, user } = res.data;
             localStorage.setItem('token', receivedToken);
             axios.defaults.headers.common['Authorization'] = `Bearer ${receivedToken}`;
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
     // Register Function
     const register = async (name, email, password, timezone = 'UTC') => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password, timezone });
+            const res = await axios.post('http://kam-4j8a.onrender.com/api/auth/register', { name, email, password, timezone });
             const { token: receivedToken, user } = res.data;
             localStorage.setItem('token', receivedToken);
             axios.defaults.headers.common['Authorization'] = `Bearer ${receivedToken}`;

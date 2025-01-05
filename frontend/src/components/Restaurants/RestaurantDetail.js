@@ -15,7 +15,7 @@ const RestaurantDetail = () => {
     useEffect(() => {
         const fetchRestaurant = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/restaurants/${id}`);
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/restaurants/${id}`);
                 setRestaurant(res.data);
                 setLoading(false);
             } catch (err) {
@@ -31,7 +31,7 @@ const RestaurantDetail = () => {
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete this restaurant?')) {
             try {
-                const res = await axios.delete(`http://localhost:5000/api/restaurants/${id}`);
+                const res = await axios.delete(`http://kam-4j8a.onrender.com/api/restaurants/${id}`);
                 console.log(res);
                 navigate('/restaurants');
             } catch (err) {

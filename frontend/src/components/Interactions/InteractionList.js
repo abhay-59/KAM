@@ -19,7 +19,7 @@ const InteractionList = ({ restaurantId }) => {
                 if (!token) {
                     throw new Error("No token found");
                 }
-                const res = await axios.get(`http://localhost:5000/api/interactions/restaurant/${restaurantId}`, {
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/interactions/restaurant/${restaurantId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

@@ -20,7 +20,7 @@ const InteractionDetail = () => {
             try {
                 console.log("Fetching Interaction Detail for ID:", id);
                 console.log("Token:", token);
-                const res = await axios.get(`http://localhost:5000/api/interactions/${id}`, {
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/interactions/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -46,7 +46,7 @@ const InteractionDetail = () => {
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete this interaction?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/interactions/${id}`, {
+                await axios.delete(`http://kam-4j8a.onrender.com/api/interactions/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

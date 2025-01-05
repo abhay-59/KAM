@@ -10,7 +10,7 @@ const RestaurantList = () => {
     useEffect(() => {
         const fetchRestaurants = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/restaurants');
+                const res = await axios.get('http://kam-4j8a.onrender.com/api/restaurants');
                 setRestaurants(res.data);
                 setLoading(false);
             } catch (err) {

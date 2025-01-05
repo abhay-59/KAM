@@ -32,9 +32,9 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
-                const resCalls = await axios.get('http://localhost:5000/api/calls/today');
+                const resCalls = await axios.get('http://kam-4j8a.onrender.com/api/calls/today');
                 setDashboardData(resCalls.data);
-                const resPerformance = await axios.get('http://localhost:5000/api/performance');
+                const resPerformance = await axios.get('http://kam-4j8a.onrender.com/api/performance');
                 setPerformanceMetrics(resPerformance.data);
                 setLoading(false);
             } catch (err) {

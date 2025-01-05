@@ -21,7 +21,7 @@ const RestaurantForm = () => {
         if (isEdit) {
             const fetchRestaurant = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:5000/api/restaurants/${id}`);
+                    const res = await axios.get(`http://kam-4j8a.onrender.com/api/restaurants/${id}`);
                     setFormData({
                         name: res.data.name,
                         address: res.data.address || '',
@@ -47,10 +47,10 @@ const RestaurantForm = () => {
         e.preventDefault();
         try {
             if (isEdit) {
-                await axios.put(`http://localhost:5000/api/restaurants/${id}`, formData);
+                await axios.put(`http://kam-4j8a.onrender.com/api/restaurants/${id}`, formData);
                 navigate(-1);
             } else {
-               await axios.post('http://localhost:5000/api/restaurants', formData);
+               await axios.post('http://kam-4j8a.onrender.com/api/restaurants', formData);
                 navigate(-1);
             }
         } catch (err) {

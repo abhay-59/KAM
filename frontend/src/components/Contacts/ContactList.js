@@ -12,7 +12,7 @@ const ContactList = ({ restaurantId }) => {
     useEffect(() => {
         const fetchContacts = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/contacts/restaurant/${restaurantId}`);
+                const res = await axios.get(`http://kam-4j8a.onrender.com/api/contacts/restaurant/${restaurantId}`);
                 setContacts(res.data);
                 setLoading(false);
             } catch (err) {

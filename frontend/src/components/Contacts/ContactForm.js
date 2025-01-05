@@ -19,7 +19,7 @@ const ContactForm = () => {
         if (isEdit) {
             const fetchContact = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:5000/api/contacts/${id}`);
+                    const res = await axios.get(`http://kam-4j8a.onrender.com/api/contacts/${id}`);
                     setFormData({
                         name: res.data.name,
                         role: res.data.role || '',
@@ -43,10 +43,10 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             if (isEdit) {
-                await axios.put(`http://localhost:5000/api/contacts/${id}`, formData);
+                await axios.put(`http://kam-4j8a.onrender.com/api/contacts/${id}`, formData);
                 navigate(-1);
             } else {
-                await axios.post('http://localhost:5000/api/contacts', { ...formData, restaurantId });
+                await axios.post('http://kam-4j8a.onrender.com/api/contacts', { ...formData, restaurantId });
                 navigate(-1);
             }
         } catch (err) {
