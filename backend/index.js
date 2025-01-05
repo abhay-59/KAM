@@ -11,9 +11,7 @@ const app = express();
 
 // authentication
 
-app.use(cors({
-    origin: '*',
-}));
+app.use(cors());
 
 
 app.use(express.json());
