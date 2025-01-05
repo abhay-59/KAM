@@ -1,13 +1,11 @@
 # Udaan Lead Management System
-
-## Project Overview
-Udaan Lead Management System is a comprehensive platform designed to streamline the management of leads, interactions, and performance metrics for key account managers (KAMs). It includes features for task planning, performance tracking, user authentication, and detailed reporting, making it a robust solution for sales teams.
-
----
 ## Live Demo
 Access the live versions of the frontend and backend applications through the links below:
 
 - **Live Application**: https://kamabhay.netlify.app/
+## Project Overview
+Udaan Lead Management System is a comprehensive platform designed to streamline the management of leads, interactions, and performance metrics for key account managers (KAMs). It includes features for task planning, performance tracking, user authentication, and detailed reporting, making it a robust solution for sales teams.
+
 ---
 ## System Requirements
 ### Backend
@@ -79,29 +77,6 @@ $ npm start
 ```
 
 Access the application at `http://localhost:3000`.
-
----
-
-## Test Execution Guide
-### Backend Tests
-1. Navigate to the backend directory:
-   ```bash
-   $ cd backend
-   ```
-2. Run tests:
-   ```bash
-   $ npm test
-   ```
-
-### Frontend Tests
-1. Navigate to the frontend directory:
-   ```bash
-   $ cd frontend
-   ```
-2. Run tests:
-   ```bash
-   $ npm test
-   ```
 
 ---
 
@@ -179,29 +154,18 @@ Response:
 
 ---
 
-## Sample Inputs/Outputs
-### Create a Restaurant
-Request:
-```json
-{
-  "name": "XYZ Restaurant",
-  "address": "123 Main Street",
-  "city": "Metropolis",
-  "state": "NY",
-  "zipcode": "12345",
-  "status": "Active"
-}
-```
-Response:
-```json
-{
-  "message": "Restaurant created successfully.",
-  "data": {
-    "_id": "12345",
-    "name": "XYZ Restaurant",
-    ...
-  }
-}
-```
+## Sample images
+<img src="https://github.com/user-attachments/assets/6c6ad61d-65a9-4360-9fb9-5639e95dd60e" width="700" height="370">
 
----
+<img src="https://github.com/user-attachments/assets/f286ed9d-d2f5-41bf-85c5-29c58495fa6f" width="700" height="370">
+--
+
+<img src="https://github.com/user-attachments/assets/cfffa3f2-cb26-417c-af62-54eef70aa8bf" width="700" height="370">
+
+<img src="https://github.com/user-attachments/assets/492de51a-19ef-40fc-8acf-590b1db402f1" width="700" height="370">
+
+
+
+
+
+
