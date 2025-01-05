@@ -12,50 +12,50 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-gradient-to-r from-[#e3307a] to-[#f48fb1] shadow-lg">
-            <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-4 flex items-center justify-between">
+        <header className="bg-gray-800 shadow-md">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
                 <div className="flex items-center">
-                <Link 
-                        to="/dashboard" 
-                        className="text-white text-4xl hover:text-gray-200 transition-colors duration-200"
+                    <Link
+                        to="/dashboard"
+                        className="text-white text-3xl font-bold tracking-wide hover:text-gray-300 transition duration-300"
                     >
-                        KAM - Hub
+                        KAM Hub
                     </Link>
                 </div>
 
-                <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-6">
                     {user ? (
                         <>
-                            <Link 
-                                to="/dashboard" 
-                                className="text-white hover:text-[#f48fb1] px-4 py-2 rounded-lg text-lg font-medium transition-all duration-200 ease-in-out hover:bg-[#e3307a]"
+                            <Link
+                                to="/dashboard"
+                                className="text-white px-4 py-2 rounded-md text-md font-medium transition duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:text-gray-300"
                             >
                                 Dashboard
                             </Link>
-                            <Link 
-                                to="/restaurants" 
-                                className="text-white hover:text-[#f48fb1] px-4 py-2 rounded-lg text-lg font-medium transition-all duration-200 ease-in-out hover:bg-[#e3307a]"
+                            <Link
+                                to="/restaurants"
+                                className="text-white px-4 py-2 rounded-md text-md font-medium transition duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:text-gray-300"
                             >
                                 Restaurants
                             </Link>
-                            <button 
+                            <button
                                 onClick={handleLogout}
-                                className="bg-[#e3307a] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#d0266b] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#e3307a] focus:ring-offset-2"
+                                className="bg-gray-700 text-white px-4 py-2 rounded-md text-md font-medium transition duration-300 ease-in-out hover:bg-gray-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             >
                                 Logout
                             </button>
                         </>
                     ) : (
                         <>
-                            <Link 
-                                to="/login" 
-                                className="text-white hover:text-[#f48fb1] px-4 py-2 rounded-lg text-lg font-medium transition-all duration-200 ease-in-out hover:bg-[#e3307a]"
+                            <Link
+                                to="/login"
+                                className="text-white px-4 py-2 rounded-md text-md font-medium transition duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg hover:text-gray-300"
                             >
                                 Login
                             </Link>
-                            <Link 
-                                to="/register" 
-                                className="bg-[#e3307a] text-white px-4 py-2 rounded-lg text-lg font-medium hover:bg-[#d0266b] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#e3307a] focus:ring-offset-2"
+                            <Link
+                                to="/register"
+                                className="bg-gray-700 text-white px-4 py-2 rounded-md text-md font-medium transition duration-300 ease-in-out hover:bg-gray-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             >
                                 Register
                             </Link>

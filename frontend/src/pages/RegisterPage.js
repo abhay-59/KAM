@@ -38,25 +38,31 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-lg shadow">
                 <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-pink">
-                        Create Account
+                    <h2 className="text-center text-3xl font-bold text-black">
+                        Create Your Account
                     </h2>
+                    {/* <p className="mt-2 text-center text-sm text-gray-700">
+                        Join us by creating an account below
+                    </p> */}
                 </div>
 
                 {(localError || contextError) && (
-                    <div className="bg-[#e3307a] border border-[#e3307a] text-white px-4 py-3 rounded relative" role="alert">
-                        <span className="block sm:inline">{localError || contextError}</span>
+                    <div className="bg-gray-200 border border-gray-400 text-black px-4 py-3 rounded">
+                        <span>{localError || contextError}</span>
                     </div>
                 )}
 
-                <form className="mt-8 space-y-6" onSubmit={onSubmit}>
-                    <div className="rounded-md shadow-sm space-y-4">
+                <form className="space-y-6" onSubmit={onSubmit}>
+                    <div className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                Full Name
+                            <label
+                                htmlFor="name"
+                                className="block text-sm font-medium text-black"
+                            >
+                                Full Name *
                             </label>
                             <input
                                 type="text"
@@ -65,13 +71,16 @@ const RegisterPage = () => {
                                 value={name}
                                 onChange={onChange}
                                 required
-                                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#e3307a] focus:border-[#e3307a] focus:z-10 sm:text-sm"
-                                placeholder="Enter your full name"
+                                className="mt-1 block w-full px-4 py-2 text-black border border-gray-400 rounded shadow-sm focus:ring-black focus:border-black sm:text-sm"
+                                placeholder="John Doe"
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                Email
+                            <label
+                                htmlFor="email"
+                                className="block text-sm font-medium text-black"
+                            >
+                                Email *
                             </label>
                             <input
                                 type="email"
@@ -80,13 +89,16 @@ const RegisterPage = () => {
                                 value={email}
                                 onChange={onChange}
                                 required
-                                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#e3307a] focus:border-[#e3307a] focus:z-10 sm:text-sm"
-                                placeholder="Enter your email"
+                                className="mt-1 block w-full px-4 py-2 text-black border border-gray-400 rounded shadow-sm focus:ring-black focus:border-black sm:text-sm"
+                                placeholder="you@example.com"
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                                Password
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-medium text-black"
+                            >
+                                Password *
                             </label>
                             <input
                                 type="password"
@@ -95,13 +107,16 @@ const RegisterPage = () => {
                                 value={password}
                                 onChange={onChange}
                                 required
-                                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#e3307a] focus:border-[#e3307a] focus:z-10 sm:text-sm"
-                                placeholder="Enter your password"
+                                className="mt-1 block w-full px-4 py-2 text-black border border-gray-400 rounded shadow-sm focus:ring-black focus:border-black sm:text-sm"
+                                placeholder="Create a password"
                             />
                         </div>
                         <div>
-                            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                                Confirm Password
+                            <label
+                                htmlFor="confirmPassword"
+                                className="block text-sm font-medium text-black"
+                            >
+                                Confirm Password *
                             </label>
                             <input
                                 type="password"
@@ -110,7 +125,7 @@ const RegisterPage = () => {
                                 value={confirmPassword}
                                 onChange={onChange}
                                 required
-                                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#e3307a] focus:border-[#e3307a] focus:z-10 sm:text-sm"
+                                className="mt-1 block w-full px-4 py-2 text-black border border-gray-400 rounded shadow-sm focus:ring-black focus:border-black sm:text-sm"
                                 placeholder="Confirm your password"
                             />
                         </div>
@@ -119,17 +134,20 @@ const RegisterPage = () => {
                     <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#e3307a] hover:bg-[#d1286b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#e3307a] transition duration-150 ease-in-out"
+                            className="w-full flex justify-center py-3 px-6 text-white bg-black hover:bg-gray-800 rounded shadow-sm transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-600"
                         >
                             Create Account
                         </button>
                     </div>
                 </form>
 
-                <div className="text-center mt-4">
-                    <p className="text-sm text-gray-600">
-                        Existing user?{' '}
-                        <Link to="/login" className="font-medium text-[#e3307a] hover:text-[#d1286b]">
+                <div className="text-center mt-6">
+                    <p className="text-sm text-gray-700">
+                        Existing User?{' '}
+                        <Link
+                            to="/login"
+                            className="font-bold text-black hover:text-gray-800"
+                        >
                             Login Here
                         </Link>
                     </p>

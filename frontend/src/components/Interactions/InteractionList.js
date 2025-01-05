@@ -1,5 +1,3 @@
-// src/components/interactions/InteractionList.js
-
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -10,16 +8,15 @@ const InteractionList = ({ restaurantId }) => {
     const [interactions, setInteractions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const { token, user, loading: authLoading, error: authError } = useContext(AuthContext);
+    const { token, user, loading: authLoading } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchInteractions = async () => {
             try {
-                // console.log("InteractionList - Token:", token); // Log the token
                 if (!token) {
                     throw new Error("No token found");
                 }
-                const res = await axios.get(`http://kam-4j8a.onrender.com/api/interactions/restaurant/${restaurantId}`, {
+                const res = await axios.get(`https://kam-4j8a.onrender.com/api/interactions/restaurant/${restaurantId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -33,7 +30,6 @@ const InteractionList = ({ restaurantId }) => {
             }
         };
 
-        // Only fetch if not loading and user is authenticated
         if (!authLoading && user) {
             fetchInteractions();
         } else {
@@ -45,7 +41,7 @@ const InteractionList = ({ restaurantId }) => {
     if (loading) {
         return (
             <div className="flex justify-center items-center p-8">
-                <div className="text-pink-600 text-lg font-semibold">
+                <div className="text-gray-800 text-lg font-semibold">
                     Loading Interactions...
                 </div>
             </div>
@@ -54,7 +50,7 @@ const InteractionList = ({ restaurantId }) => {
 
     if (error) {
         return (
-            <div className="bg-pink-50 border border-pink-200 text-pink-600 px-4 py-3 rounded-lg">
+            <div className="bg-gray-100 border border-gray-300 text-gray-700 px-4 py-3 rounded-lg">
                 {error}
             </div>
         );
@@ -62,7 +58,7 @@ const InteractionList = ({ restaurantId }) => {
 
     return (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-            <div className="bg-pink-600 px-6 py-4">
+            <div className="bg-black px-6 py-4">
                 <h2 className="text-xl font-semibold text-white">Restaurant Interactions</h2>
             </div>
 
@@ -72,7 +68,7 @@ const InteractionList = ({ restaurantId }) => {
                         <p className="text-gray-500">No interactions found.</p>
                         <Link 
                             to={`/restaurants/${restaurantId}/interactions/new`}
-                            className="mt-4 inline-block text-pink-600 hover:text-pink-700"
+                            className="mt-4 inline-block text-gray-800 hover:text-gray-600"
                         >
                             + Add your first interaction
                         </Link>
@@ -82,22 +78,21 @@ const InteractionList = ({ restaurantId }) => {
                         {interactions.map(interaction => (
                             <div 
                                 key={interaction._id}
-                                className="flex items-center justify-between p-4 hover:bg-pink-50 rounded-lg border border-pink-100 transition-colors duration-150"
+                                className="flex items-center justify-between p-4 hover:bg-gray-100 rounded-lg border border-gray-200 transition-colors duration-150"
                             >
                                 <div className="flex-1">
                                     <Link 
                                         to={`/interactions/${interaction._id}`}
-                                        className="text-lg font-medium text-gray-900 hover:text-pink-600"
+                                        className="text-lg font-medium text-gray-900 hover:text-black"
                                     >
                                         {interaction.type}
                                     </Link>
-                                    <p className="text-gray-500 text-sm mt-1">
+                                    <p className="text-gray-600 text-sm mt-1">
                                         {interaction.details}
                                     </p>
                                     <p className="text-gray-400 text-xs mt-1">
                                         {moment(interaction.date).format('YYYY-MM-DD HH:mm')}
                                     </p>
-                                    {/* Display Contact Name */}
                                     <p className="text-gray-600 text-sm mt-1">
                                         Contact: {interaction.contactId ? `${interaction.contactId.name} (${interaction.contactId.role})` : 'Unknown Contact'}
                                     </p>
@@ -105,7 +100,7 @@ const InteractionList = ({ restaurantId }) => {
                                 <div className="flex items-center space-x-2">
                                     <Link
                                         to={`/interactions/${interaction._id}`}
-                                        className="text-sm text-pink-600 hover:text-pink-700 font-medium"
+                                        className="text-sm text-gray-800 hover:text-gray-600 font-medium"
                                     >
                                         View Details
                                     </Link>

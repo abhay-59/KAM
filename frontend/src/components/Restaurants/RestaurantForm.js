@@ -21,7 +21,7 @@ const RestaurantForm = () => {
         if (isEdit) {
             const fetchRestaurant = async () => {
                 try {
-                    const res = await axios.get(`http://kam-4j8a.onrender.com/api/restaurants/${id}`);
+                    const res = await axios.get(`https://kam-4j8a.onrender.com/api/restaurants/${id}`);
                     setFormData({
                         name: res.data.name,
                         address: res.data.address || '',
@@ -47,10 +47,10 @@ const RestaurantForm = () => {
         e.preventDefault();
         try {
             if (isEdit) {
-                await axios.put(`http://kam-4j8a.onrender.com/api/restaurants/${id}`, formData);
+                await axios.put(`https://kam-4j8a.onrender.com/api/restaurants/${id}`, formData);
                 navigate(-1);
             } else {
-               await axios.post('http://kam-4j8a.onrender.com/api/restaurants', formData);
+               await axios.post('https://kam-4j8a.onrender.com/api/restaurants', formData);
                 navigate(-1);
             }
         } catch (err) {
@@ -60,22 +60,22 @@ const RestaurantForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white p-6">
+        <div className="min-h-screen bg-white p-6">
             <div className="max-w-2xl mx-auto">
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                    <h2 className="text-3xl font-bold text-pink-800 mb-6">
+                <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-300">
+                    <h2 className="text-3xl font-bold text-black mb-6">
                         {isEdit ? 'Edit' : 'Add New'} Restaurant
                     </h2>
 
                     {error && (
-                        <div className="bg-pink-100 border border-pink-400 text-pink-700 px-4 py-3 rounded mb-6">
+                        <div className="bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded mb-6">
                             {error}
                         </div>
                     )}
 
                     <form onSubmit={onSubmit} className="space-y-6">
                         <div className="space-y-2">
-                            <label className="block text-pink-700 font-medium">
+                            <label className="block text-black font-medium">
                                 Name:
                             </label>
                             <input
@@ -84,12 +84,12 @@ const RestaurantForm = () => {
                                 value={name}
                                 onChange={onChange}
                                 required
-                                className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="block text-pink-700 font-medium">
+                            <label className="block text-black font-medium">
                                 Address:
                             </label>
                             <input
@@ -97,13 +97,13 @@ const RestaurantForm = () => {
                                 name="address"
                                 value={address}
                                 onChange={onChange}
-                                className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                             />
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <label className="block text-pink-700 font-medium">
+                                <label className="block text-black font-medium">
                                     City:
                                 </label>
                                 <input
@@ -111,12 +111,12 @@ const RestaurantForm = () => {
                                     name="city"
                                     value={city}
                                     onChange={onChange}
-                                    className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="block text-pink-700 font-medium">
+                                <label className="block text-black font-medium">
                                     State:
                                 </label>
                                 <input
@@ -124,13 +124,13 @@ const RestaurantForm = () => {
                                     name="state"
                                     value={state}
                                     onChange={onChange}
-                                    className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="block text-pink-700 font-medium">
+                            <label className="block text-black font-medium">
                                 Zipcode:
                             </label>
                             <input
@@ -138,19 +138,19 @@ const RestaurantForm = () => {
                                 name="zipcode"
                                 value={zipcode}
                                 onChange={onChange}
-                                className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="block text-pink-700 font-medium">
+                            <label className="block text-black font-medium">
                                 Status:
                             </label>
                             <select
                                 name="status"
                                 value={status}
                                 onChange={onChange}
-                                className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
                             >
                                 <option value="New">New</option>
                                 <option value="Contacted">Contacted</option>
@@ -162,7 +162,7 @@ const RestaurantForm = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-pink-600 text-white py-3 px-6 rounded-md font-medium hover:bg-pink-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
+                            className="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
                         >
                             {isEdit ? 'Update' : 'Create'} Restaurant
                         </button>

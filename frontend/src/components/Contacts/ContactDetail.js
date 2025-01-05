@@ -1,5 +1,3 @@
-// src/components/contacts/ContactForm.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -21,7 +19,7 @@ const ContactForm = () => {
         if (isEdit) {
             const fetchContact = async () => {
                 try {
-                    const res = await axios.get(`http://kam-4j8a.onrender.com/api/contacts/${id}`);
+                    const res = await axios.get(`https://kam-4j8a.onrender.com/api/contacts/${id}`);
                     setFormData({
                         name: res.data.name,
                         role: res.data.role || '',
@@ -45,10 +43,10 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             if (isEdit) {
-                await axios.put(`http://kam-4j8a.onrender.com/api/contacts/${id}`, formData);
+                await axios.put(`https://kam-4j8a.onrender.com/api/contacts/${id}`, formData);
                 navigate(-1);
             } else {
-                await axios.post('http://kam-4j8a.onrender.com/api/contacts', { ...formData, restaurantId });
+                await axios.post('https://kam-4j8a.onrender.com/api/contacts', { ...formData, restaurantId });
                 navigate(-1);
             }
         } catch (err) {
@@ -58,11 +56,11 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-pink-50 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                     {/* Form Header */}
-                    <div className="bg-pink-600 px-6 py-4">
+                    <div className="bg-gray-700 px-6 py-4">
                         <h2 className="text-2xl font-bold text-white">
                             {isEdit ? 'Edit' : 'Add New'} Contact
                         </h2>
@@ -70,8 +68,8 @@ const ContactForm = () => {
 
                     {/* Error Message */}
                     {error && (
-                        <div className="bg-pink-50 border-l-4 border-pink-600 p-4 mx-6 mt-4">
-                            <p className="text-pink-600">{error}</p>
+                        <div className="bg-gray-700 border-l-4 border-red-500 p-4 mx-6 mt-4">
+                            <p className="text-red-500">{error}</p>
                         </div>
                     )}
 
@@ -81,7 +79,7 @@ const ContactForm = () => {
                             <div>
                                 <label 
                                     htmlFor="name" 
-                                    className="block text-sm font-medium text-gray-700"
+                                    className="block text-sm font-medium text-gray-300"
                                 >
                                     Name
                                 </label>
@@ -92,14 +90,14 @@ const ContactForm = () => {
                                     value={name}
                                     onChange={onChange}
                                     required
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    className="mt-1 block w-full border border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                                 />
                             </div>
 
                             <div>
                                 <label 
                                     htmlFor="role" 
-                                    className="block text-sm font-medium text-gray-700"
+                                    className="block text-sm font-medium text-gray-300"
                                 >
                                     Role
                                 </label>
@@ -109,14 +107,14 @@ const ContactForm = () => {
                                     name="role"
                                     value={role}
                                     onChange={onChange}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    className="mt-1 block w-full border border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                                 />
                             </div>
 
                             <div>
                                 <label 
                                     htmlFor="email" 
-                                    className="block text-sm font-medium text-gray-700"
+                                    className="block text-sm font-medium text-gray-300"
                                 >
                                     Email
                                 </label>
@@ -126,14 +124,14 @@ const ContactForm = () => {
                                     name="email"
                                     value={email}
                                     onChange={onChange}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    className="mt-1 block w-full border border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                                 />
                             </div>
 
                             <div>
                                 <label 
                                     htmlFor="phone" 
-                                    className="block text-sm font-medium text-gray-700"
+                                    className="block text-sm font-medium text-gray-300"
                                 >
                                     Phone
                                 </label>
@@ -143,7 +141,7 @@ const ContactForm = () => {
                                     name="phone"
                                     value={phone}
                                     onChange={onChange}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                                    className="mt-1 block w-full border border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -153,13 +151,13 @@ const ContactForm = () => {
                             <button
                                 type="button"
                                 onClick={() => navigate(-1)}
-                                className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                className="bg-gray-700 py-2 px-4 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                             >
                                 Cancel
                             </button>
                             <button
                                 type="submit"
-                                className="bg-pink-600 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                                className="bg-gray-700 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                             >
                                 {isEdit ? 'Update' : 'Create'} Contact
                             </button>
